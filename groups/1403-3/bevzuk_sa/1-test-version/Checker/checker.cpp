@@ -69,13 +69,18 @@ class result {
         }
 } checker_result;
 
-int main() {
+int main(int argc, char * argv[]) {
     FILE * f1;
     double res_time;
     int n;
     double* res;
 
-    freopen_s(&f1, "..//array.out", "rb", stdin);
+    std::string fileName = "array";
+    if (argc == 2) {
+        fileName = argv[1];
+    }
+
+    freopen_s(&f1, ("..//" + fileName + ".out").c_str(), "rb", stdin);
     fread(&res_time, sizeof(res_time), 1, stdin);
     fread(&n, sizeof(n), 1, stdin);
     res = new double[n];

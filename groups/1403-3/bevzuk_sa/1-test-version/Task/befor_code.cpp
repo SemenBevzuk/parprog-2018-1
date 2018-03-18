@@ -11,8 +11,12 @@ int main(int argc, char * argv[]) {
     FILE* f1;
     FILE* f2;
 
-    freopen_s(&f1, "..//array.in", "rb", stdin);
-    freopen_s(&f2, "..//array.out", "wb", stdout);
+    std::string fileName = "array";
+    if (argc == 2) {
+        fileName = argv[1];
+    }
+    freopen_s(&f1, ("..//" + fileName + ".in").c_str(), "rb", stdin);
+    freopen_s(&f2, ("..//" + fileName + ".out").c_str(), "wb", stdout);
 
     // чтение данных 
     fread(&N, sizeof(N), 1, stdin);
